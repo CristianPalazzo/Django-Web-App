@@ -1,0 +1,254 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    background: linear-gradient(#111425,#3751e0);
+}
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+header .logo{
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    /* text-transform: uppercase;   pone todas las letras en mayusculas */
+    letter-spacing: 2px;
+}
+
+header ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li{
+    list-style: none;
+    margin-left: 20px;
+}
+
+header ul li a{
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #fff;
+    border-radius: 20px;
+}
+
+#h4user{
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #fff;
+    border-radius: 20px;
+}
+
+header ul li a:hover ,header ul li a.active, #h4user:hover{
+    background: #fff;
+    color: #2b1055;
+}
+
+/* Hasta acá el css del header (tasks.html) */
+
+.content{
+    /* centramos las tasks */
+    
+    display: flexbox;
+    margin: 120px 180px ;
+    margin-bottom: 0px;
+    
+    
+    /* min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+}
+
+.scene{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-attachment: fixed;
+    overflow: visible;
+}
+/* tasks box */
+.tasks{
+    z-index: 10000;
+    border-style: solid;
+    border-radius: 5%;
+    border-color: #fff;
+    padding: 30px;
+    backdrop-filter: blur(5px);
+    max-width: 1000px;
+    
+}
+/* task type */
+.tasks h2{
+    color: #fff;
+    font-size: xx-large;
+}
+
+/* .moon{
+    position: absolute;
+    top: 60px;
+    left: 1150px;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 900;
+}
+
+.moon::after{
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(#111425,#3751e0);
+    background-attachment: fixed;
+} */
+
+.forest{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transform: scale(1.1);
+}
+
+.scene i {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    animation: animate linear infinite;
+    z-index: 910;
+}
+
+@keyframes animate{
+    0%{
+        opacity: 0;
+        transform: translateY(0);
+    }
+    10%,90%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+}
+
+
+/* CSS DE LAS CARDS */
+
+.container_tasks{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    align-items: center;
+    justify-content: center; 
+    max-width: 1000px;  
+    margin: 40px;
+}
+
+.container_tasks li,.container_tasks #create_bottom{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; 
+    width: 200px;
+    height: 200px;
+    border-style: solid;
+    border-radius: 5%;
+    border-color: rgba(255, 255, 255, 0.2);
+    padding: 7px ;
+    margin: 7px;
+    transition: transform 330ms ease-in-out;
+    background: #fff;
+    text-decoration: none;
+}
+.container_tasks #create_bottom{
+    border-radius: 50%;
+    background: rgba(170, 170, 170, 0.2);
+    width: 150px;
+    height: 150px;
+
+}
+
+.container_tasks li.taskimportant{
+    background: rgba(251, 74, 74, 0.725);
+}
+
+.container_tasks li.tasknotimportant{
+    background: rgba(255, 198, 75, 0.8);
+}
+
+.container_tasks li:hover,.container_tasks #create_bottom:hover{
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: scale(1.1);
+}
+
+.container_tasks li a{
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.container_tasks li a h3{
+    color: #fff;
+    padding-bottom: 15px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* Pone el color de los p amarillos en un color mas oscuro  */
+
+.container_tasks li.tasknotimportant a h3{
+    color: #658bff;
+    font-weight: 800;
+}
+
+.container_tasks li.tasknotimportant p{
+    color: #658bff;
+    border-style: solid;
+    border-color: #2b1055;
+    font-weight: 700;
+} 
+
+.container_tasks li a p{
+    color: #f3ffe9;
+    border-style: solid;
+    border-color: #2b1055;
+}
+
+.container_tasks li a h6{
+    color: #200053;
+}
+
+.container_tasks ul a i{
+    font-size: 500px;
+}
+
+.container_tasks a#create_bottom i{
+    font-size: 80px;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.6);
+}

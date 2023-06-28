@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- <h1>Home</h1> -->
+<section>
+    <img src="../../static/img/home/stars.png" id="stars">
+    <img src="../../static/img/home/moon.png" id="moon">
+    <img src="../../static/img/home/mountains_behind.png" id="mountains_behind">
+    <h2 id="text">Moon Light</h2>
+    <a href="#sec" id="btn">Explore</a>
+    <img src="../../static/img/home/mountains_front.png" id="mountains_front">
+</section>
+
+<div class="sec" id="sec">
+    <h2>Parallax Scrolling  Effects</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Excepturi vero obcaecati nemo ab reiciendis? Eius, totam itaque! Porro odio ullam nam, 
+    eius adipisci possimus eaque, unde, dolores ea dignissimos accusantium!. Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+    Nobis neque sequi quos earum natus. Dolores, natus libero, a voluptate eaque iste praesentium, 
+    vel placeat animi quae corporis aliquid quam maxime?. Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+    Voluptatum culpa at enim animi vero molestias ducimus eius obcaecati earum, eveniet autem blanditiis rem nam sequi repellendus. 
+    Deserunt rem officiis exercitationem.Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Excepturi vero obcaecati nemo ab reiciendis? Eius, totam itaque! Porro odio ullam nam, 
+    eius adipisci possimus eaque, unde, dolores ea dignissimos accusantium!. Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+    Nobis neque sequi quos earum natus. <br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Excepturi vero obcaecati nemo ab reiciendis? Eius, totam itaque! Porro odio ullam nam, 
+    eius adipisci possimus eaque, unde, dolores ea dignissimos accusantium!. Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+    Nobis neque sequi quos earum natus.<br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Excepturi vero obcaecati nemo ab reiciendis? Eius, totam itaque! Porro odio ullam nam, 
+    eius adipisci possimus eaque, unde, dolores ea dignissimos accusantium!. Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+    Nobis neque sequi quos earum natus. <br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Excepturi vero obcaecati nemo ab reiciendis? Eius, totam itaque! Porro odio ullam nam, 
+    eius adipisci possimus eaque, unde, dolores ea dignissimos accusantium!. Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+    Nobis neque sequi quos earum natus. Dolores, natus libero, a voluptate eaque iste praesentium, 
+    vel placeat animi quae corporis aliquid quam maxime?. Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+    Voluptatum culpa at enim animi vero molestias ducimus eius obcaecati earum, eveniet autem blanditiis rem nam sequi repellendus. 
+    Deserunt rem officiis exercitationem.Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Excepturi vero obcaecati nemo ab reiciendis? Eius, totam itaque! Porro odio ullam nam, 
+    eius adipisci possimus eaque, unde, dolores ea dignissimos accusantium!. Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+    Nobis neque sequi quos earum natus.</p>
+</div>
+
+<script>
+    let stars = document.getElementById('stars');
+    let moon = document.getElementById('moon');
+    let mountains_behind = document.getElementById('mountains_behind');
+    let text = document.getElementById('text');
+    let btn = document.getElementById('btn');
+    let mountains_front = document.getElementById('mountains_front');
+    let header = document.querySelector('header');
+
+    window.addEventListener('scroll', function(){
+        
+        let value = window.scrollY;
+        stars.style.left = value * 0.40 + 'px';
+        moon.style.top = value * 1.05 + 'px';
+        mountains_behind.style.top = value * 0.5 + 'px';
+        mountains_front.style.top = value * 0 + 'px';
+        text.style.marginRight = value * 3.5 + 'px';
+        text.style.marginTop = value * 1.5 + 'px';
+        btn.style.marginTop = value * 1.5 + 'px';
+        header.style.top = value * 0.5 + 'px';
+
+    })
+</script>
+
+{% endblock %}

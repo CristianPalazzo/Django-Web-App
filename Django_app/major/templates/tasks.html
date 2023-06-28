@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="scene">
+    <div class="moon"></div>
+    <img src="../../static/img/tasks/forest.png" class="forest">
+</div>
+<div class="content">
+    
+    <div class="tasks">
+        <h2 class="title">TASKS {{status}}</h2>
+        
+        <ul class="container_tasks">
+            {% for task in tasks %}
+
+            {% if task.important %}
+            <li class="taskimportant">  
+                <a href="{% url 'task_detail' task.id %}">
+                    <h3>{{task.title}}</h3>
+                    <h6>Descripción</h6>
+                    <p>{{task.description}}</p>
+                    <h6>fecha de creacion</h6>
+                    <p>{{task.created|date:'j M Y'}}</p>
+                    
+                    {% if status == 'Completed' %}
+                    <h6>fecha de completado</h6>
+                    <p>{{task.datecompleted|date:'j M Y'}}</p>
+                    <h6>Importancia</h6>
+                    <p>ALTA</p> 
+                    {% endif %}
+                </a>
+            </li>
+            {% else %}
+            <li class="tasknotimportant">  
+                <a href="{% url 'task_detail' task.id %}">
+                    <h3>{{task.title}}</h3>
+                    <h6>Descripción</h6>
+                    <p>{{task.description}}</p>
+                    <h6>fecha de creacion</h6>
+                    <p>{{task.created|date:'j M Y'}}</p>
+                    
+                    {% if status == 'Completed' %}
+                    <h6>fecha de completado</h6>
+                    <p>{{task.datecompleted|date:'j M Y'}}</p>
+                    <h6>Importancia</h6>
+                    <p>BAJA</p> 
+                    {% endif %}
+                </a>
+            </li>
+            {% endif %}
+
+            {% endfor %}
+
+            {% if status == 'Pending' %}
+            <a href="{% url 'create_task' %}" id="create_bottom">
+                <i class="fa-solid fa-plus"></i>
+            </a> 
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function stars(){
+        let count = 500;
+        let scene = document.querySelector('.scene');
+        let i = 0;
+        while(i<count){
+            let star = document.createElement("i");
+            let x = Math.floor(Math.random() * window.innerWidth)
+            let y = Math.floor(Math.random() * window.innerHeight)
+            let duration = Math.random() * 10;
+            let size = Math.random() * 2;
+
+            star.style.left = x+'px';
+            star.style.top = y+'px';
+            star.style.width = 1+size+'px';
+            star.style.height = 1+size+'px';
+
+            star.style.animationDuration = 5+duration+'s';
+            star.style.animationDelay = duration+'s';
+
+            scene.appendChild(star);
+            i++;
+        }
+    }
+    stars();
+</script>
+
+
+{% endblock %}

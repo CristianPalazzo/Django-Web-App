@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if body_class == 'home' %}
+    <link rel="stylesheet" href="../../static/css/Base.css">
+    {% elif body_class == 'signin' %}
+    <link rel="stylesheet" href="../../static/css/signin.css">
+    {% elif body_class == 'signup' %}
+    <link rel="stylesheet" href="../../static/css/signup.css">
+    {% elif body_class == 'tasks' %}
+    <link rel="stylesheet" href="../../static/css/Tasks.css">
+    {% elif body_class == 'tasks_completed' %}
+    <link rel="stylesheet" href="../../static/css/Tasks_completed.css">
+    {% elif body_class == 'tasks_create' %}
+    <link rel="stylesheet" href="../../static/css/create_tasks.css">
+    {% elif body_class == 'task_detail' %}
+    <link rel="stylesheet" href="../../static/css/task_detail.css">
+    {% endif %}
+    
+    <title>Django Application</title>
+</head>
+<body>
+    <header>
+        <a href="" class="logo">My Tasks</a>
+        <ul class="container_list_header">
+            <li><a href="/" class="active">Home</a></li>
+            
+            {% if user.is_authenticated %}
+            
+            <li><a href="{% url 'tasks' %}">Tasks Pending</a></li>
+            <li><a href="{% url 'tasks_completed' %}">Tasks completed</a></li>
+            <li><a href="/logout">Logout</a></li>
+            <li><h4 id="h4user">Hi {{nameuser}} </h4></li>
+            {% else %}
+            <li><a href="/signup">Signup</a></li>
+            <li><a href="/signin">Signin</a></li>
+            {% endif %}
+        </ul>
+    </header>
+    
+    {% block content %}
+
+    {% endblock %}
+
+
+
+
+    <!-- <footer>
+        <div class="container_footer">
+            <ul class="container_list_footer">
+                <li class="container_element">
+                    <a href="">Contactos</a> 
+                </li>
+                <li class="container_element">
+                    <a href="">Redes sociales</a> 
+                </li>
+                <li class="container_element">
+                    <a href="">Mas info</a> 
+                </li>
+            </ul>
+        </div>
+    </footer> -->
+
+    
+    <script src="https://kit.fontawesome.com/45bbc3e6ee.js" crossorigin="anonymous"></script>
+</body>
+</html>
